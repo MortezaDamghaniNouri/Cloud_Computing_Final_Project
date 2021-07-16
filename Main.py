@@ -52,6 +52,7 @@ while True:
     user_input = input("Input: ")
     if user_input == "exit":
         dockers_terminator()
+        break
 
     else:
         commands_list = input_separator(user_input)
