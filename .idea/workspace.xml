@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d1c87f42-9df9-48fc-9126-0948b873ecbb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/numbers.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/words.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Input.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Script.py" beforeDir="false" afterPath="$PROJECT_DIR$/Script.py" afterDir="false" />
     </list>
@@ -76,7 +80,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1626439881761</updated>
-      <workItem from="1626439884991" duration="9863000" />
+      <workItem from="1626439884991" duration="12232000" />
     </task>
     <servers />
   </component>

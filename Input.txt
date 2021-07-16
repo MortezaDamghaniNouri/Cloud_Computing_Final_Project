@@ -1,1 +1,1 @@
-{<min, /test1/path1>, <max, /test1/path2>, </temp/output>}
+{<min, E:\Input\\numbers.txt>, <max, E:\Input\\numbers.txt>, <average, E:\Input\\numbers.txt>, <sort, E:\Input\\numbers.txt>, <wordcount, E:\Input\\words.txt>, <E:\Output>}
