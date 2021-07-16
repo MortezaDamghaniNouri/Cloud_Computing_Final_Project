@@ -1,0 +1,1 @@
+{<min, /test1/path1>, <max, /test1/path2>, </temp/output>}
