@@ -1,9 +1,16 @@
+import subprocess
 
 
 
 
 
-def input_seperator(user_input):
+
+
+
+
+
+# This function extracts commands and directory addresses from user input
+def input_separator(user_input):
     user_input = user_input.rstrip("}")
     user_input = user_input.lstrip("{")
     commands = user_input.split(">, ")
@@ -24,6 +31,16 @@ def input_seperator(user_input):
     return output_commands
 
 
+# This function terminates three generated dockers
+def dockers_terminator():
+    subprocess.run("docker stop cloud_computing_container1")
+    subprocess.run("docker rm cloud_computing_container1")
+    subprocess.run("docker stop cloud_computing_container2")
+    subprocess.run("docker rm cloud_computing_container2")
+    subprocess.run("docker stop cloud_computing_container3")
+    subprocess.run("docker rm cloud_computing_container3")
+    print("All dockers terminated")
+
 
 
 
@@ -32,7 +49,12 @@ def input_seperator(user_input):
 # Main part of the code starts here
 while True:
     user_input = input("Input: ")
-    commands_list = input_seperator(user_input)
+    if user_input == "exit":
+        dockers_terminator()
+
+    else:
+        commands_list = input_seperator(user_input)
+
 
 
 
