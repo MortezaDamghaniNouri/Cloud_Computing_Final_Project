@@ -6,9 +6,15 @@ FROM python
 
 RUN mkdir c:\home\cloud_computing
 
+RUN mkdir c:\home\cloud_computing\Output
+
 #copying Script.py from local directory to container's cloud_computing folder
 
 COPY Script.py /home/cloud_computing/Script.py
+
+COPY numbers.txt /home/cloud_computing/numbers.txt
+
+COPY words.txt /home/cloud_computing/words.txt
 
 #making the container to be up and running always
 

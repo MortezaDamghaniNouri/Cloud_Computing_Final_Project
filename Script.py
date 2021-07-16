@@ -113,17 +113,14 @@ def wordcount_function(input_file_location, output_folder):
 
 # Main part of the code starts here
 
-# args_list = sys.argv
-args_list = ["temp", "min", "E:\Input\\numbers.txt", "max", "E:\Input\\numbers.txt", "average", "E:\Input\\numbers.txt", "sort", "E:\Input\\numbers.txt", "wordcount", "E:\Input\\words.txt", "E:\Output"]
-print("The args are: ")
-for i in args_list:
-    print(i)
+
+# args_list = ["temp", "min", "E:\Input\\numbers.txt", "max", "E:\Input\\numbers.txt", "average", "E:\Input\\numbers.txt", "sort", "E:\Input\\numbers.txt", "wordcount", "E:\Input\\words.txt", "E:\Output"]
+# print("The args are: ")
+# for i in args_list:
+#    print(i)
 
 
-
-
-
-
+args_list = sys.argv
 args_list.pop(0)
 
 output_folder = args_list[len(args_list) - 1]
