@@ -39,6 +39,10 @@ def dockers_terminator():
     subprocess.run("docker rm cloud_computing_container2")
     subprocess.run("docker stop cloud_computing_container3")
     subprocess.run("docker rm cloud_computing_container3")
+    subprocess.run("docker image rm -f cloud_computing_image")
+
+
+
     print("All dockers terminated")
 
 
