@@ -3,7 +3,7 @@ import sys
 
 # This function finds the minimum number in the input file
 def min_function(input_file_location, output_folder):
-    output_file = open(output_folder + "\\min.txt", "wt")
+    output_file = open(output_folder + "/min.txt", "wt")
     input_file = open(input_file_location, "rt")
     input_numbers = []
     for line in input_file:
@@ -24,7 +24,7 @@ def min_function(input_file_location, output_folder):
 
 # This function finds the maximum number in the input file
 def max_function(input_file_location, output_folder):
-    output_file = open(output_folder + "\\max.txt", "wt")
+    output_file = open(output_folder + "/max.txt", "wt")
     input_file = open(input_file_location, "rt")
     input_numbers = []
     for line in input_file:
@@ -45,7 +45,7 @@ def max_function(input_file_location, output_folder):
 
 # This function finds the average of the numbers in the input file
 def average_function(input_file_location, output_folder):
-    output_file = open(output_folder + "\\average.txt", "wt")
+    output_file = open(output_folder + "/average.txt", "wt")
     input_file = open(input_file_location, "rt")
     input_numbers = []
     for line in input_file:
@@ -65,7 +65,7 @@ def average_function(input_file_location, output_folder):
 
 # This function sorts the input list
 def sort_function(input_file_location, output_folder):
-    output_file = open(output_folder + "\\sort.txt", "wt")
+    output_file = open(output_folder + "/sort.txt", "wt")
     input_file = open(input_file_location, "rt")
     input_numbers = []
     for line in input_file:
@@ -90,7 +90,7 @@ def sort_function(input_file_location, output_folder):
 
 # This function counts the words in the input file
 def wordcount_function(input_file_location, output_folder):
-    output_file = open(output_folder + "\\wordcount.txt", "wt")
+    output_file = open(output_folder + "/wordcount.txt", "wt")
     input_file = open(input_file_location, "rt")
     lines = []
     word_count = {}
