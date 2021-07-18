@@ -7,10 +7,15 @@
 ====
 {<wordcount, E:\Input\words.txt>, <program, E:\Input\program2.py>, <C:\Output>}
 
+==========
+
+{<program, E:\Input\program1.py>, <program, E:\Input\program2.py>, <wordcount, E:\Input\words.txt>, <program, E:\Input\program2.py>, <program, E:\Input\program2.py>, <C:\Output>}
+
+
 
 
 ===========
-{<program, E:\Input\program2.py>, <wordcount, E:\Input\words.txt>, <C:\Output2>}
+{<program, E:\Input\program2.py>, <wordcount, E:\Input\words.txt>, <C:\Output>}
 
 
 

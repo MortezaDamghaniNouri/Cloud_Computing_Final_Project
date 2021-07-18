@@ -69,9 +69,11 @@ def does_task_exist(input_task_name, commands_list):
 def task_assigner(container_name, task, containers_list):
     user_id = task[1]
     commands_list = task[0]
-    # Making input directories
+    # Program command input counter
+    counter = 1
+    # Making input directory in the container
     subprocess.run("docker exec " + container_name + " mkdir -p /home/cloud_computing/Input/user" + str(user_id) + "_input")
-    # making the output directory in the container
+    # Making the output directory in the container
     subprocess.run("docker exec " + container_name + " mkdir -p /home/cloud_computing/Output/user" + str(user_id) + "_output")
     if does_task_exist("min", commands_list):
         subprocess.run("docker exec " + container_name + " touch /home/cloud_computing/Output/user" + str(user_id) + "_output" + "/min.txt")
@@ -103,7 +105,8 @@ def task_assigner(container_name, task, containers_list):
                     subprocess.run("docker cp " + input_file_folder + " " + container_name + ":/home/cloud_computing/Input/user" + str(user_id) + "_input/input_program.py")
                     # Executing the program execution tasks in container
                     output = subprocess.run("docker exec " + container_name + " python /home/cloud_computing/Input/user" + str(user_id) + "_input/input_program.py", capture_output=True)
-                    program_output_file = open(commands_list[len(commands_list) - 1] + "\python_program_output.txt", "wt")
+                    program_output_file = open(commands_list[len(commands_list) - 1] + "\python_program_output_" + "user" + str(user_id) + " program" + str(counter) + ".txt", "wt")
+                    counter += 1
                     program_output_file.write(output.stdout.decode())
                     program_output_file.write(output.stderr.decode())
                     program_output_file.close()

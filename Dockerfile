@@ -12,6 +12,9 @@ RUN mkdir c:\home\cloud_computing\Output
 
 RUN pip install numpy
 
+#installing math library in the container
+RUN pip install python-math
+
 #copying Script.py from local directory to container's cloud_computing folder
 
 COPY Script.py /home/cloud_computing/Script.py
