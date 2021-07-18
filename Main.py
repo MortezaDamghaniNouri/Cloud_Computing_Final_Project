@@ -1,8 +1,6 @@
 import subprocess
 import threading
 import time
-# This library is used for copying a file from a source location to a destination location
-import shutil
 
 # This flag will set to True to stop the container selector thread
 stop_flag = False
@@ -48,13 +46,10 @@ def status_list_changer(containers_list, container_index, number_of_commands, us
     # print("The sleep time is: " + str(number_of_commands * 1.5))
     time.sleep(number_of_commands * 1.5)
     if container_index == 0:
-        subprocess.run("docker cp container1:/home/cloud_computing/Output E:\Output\\container1")
         subprocess.run("docker cp container1:/home/cloud_computing/Output/user" + str(user_id) + "_output " + output_folder)
     if container_index == 1:
-        subprocess.run("docker cp container2:/home/cloud_computing/Output E:\Output\\container2")
         subprocess.run("docker cp container2:/home/cloud_computing/Output/user" + str(user_id) + "_output " + output_folder)
     if container_index == 2:
-        subprocess.run("docker cp container3:/home/cloud_computing/Output E:\Output\\container3")
         subprocess.run("docker cp container3:/home/cloud_computing/Output/user" + str(user_id) + "_output " + output_folder)
     containers_list[container_index] = "idle"
     print("User" + str(user_id) + " tasks finished")
@@ -107,11 +102,11 @@ def task_assigner(container_name, task, containers_list):
                     subprocess.run("docker exec " + container_name + " touch " + "/home/cloud_computing/Input/user" + str(user_id) + "_input/input_program.py")
                     subprocess.run("docker cp " + input_file_folder + " " + container_name + ":/home/cloud_computing/Input/user" + str(user_id) + "_input/input_program.py")
                     # Executing the program execution tasks in container
-                    subprocess.run("docker exec " + container_name + " python /home/cloud_computing/Input/user" + str(user_id) + "_input/input_program.py > E:\Python_Codes_Output\python_program_output.txt 2>&1")
-                    # Copying the output results of running the program in the user output folder
-                    shutil.copy("E:\Python_Codes_Output\python_program_output.txt", "C:\Output")
-
-
+                    output = subprocess.run("docker exec " + container_name + " python /home/cloud_computing/Input/user" + str(user_id) + "_input/input_program.py", capture_output=True)
+                    program_output_file = open(commands_list[len(commands_list) - 1] + "\python_program_output.txt", "wt")
+                    program_output_file.write(output.stdout.decode())
+                    program_output_file.write(output.stderr.decode())
+                    program_output_file.close()
         i += 1
 
     if container_name == "container1":

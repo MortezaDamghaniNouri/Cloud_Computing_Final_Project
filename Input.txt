@@ -4,6 +4,15 @@
 {<sort, E:\Input\numbers3.txt>, <wordcount, E:\Input\words.txt>, <C:\Output>}
 
 
+====
+{<wordcount, E:\Input\words.txt>, <program, E:\Input\program2.py>, <C:\Output>}
+
+
+
+===========
+{<program, E:\Input\program2.py>, <wordcount, E:\Input\words.txt>, <C:\Output2>}
+
+
 
 =================
 docker exec container1 python /home/cloud_computing/Script.py min /home/cloud_computing/numbers.txt max /home/cloud_computing/numbers.txt average /home/cloud_computing/numbers.txt sort /home/cloud_computing/numbers.txt wordcount /home/cloud_computing/words.txt /home/cloud_computing/Output
