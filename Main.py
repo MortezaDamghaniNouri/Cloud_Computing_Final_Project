@@ -43,7 +43,14 @@ def dockers_terminator():
 
 # This function changes the status of containers in the containers list
 def status_list_changer(containers_list, container_index, number_of_commands, user_id):
+    # print("The sleep time is: " + str(number_of_commands * 1.5))
     time.sleep(number_of_commands * 1.5)
+    if container_index == 0:
+        subprocess.run("docker cp container1:/home/cloud_computing/Output E:\Output\\container1")
+    if container_index == 1:
+        subprocess.run("docker cp container2:/home/cloud_computing/Output E:\Output\\container2")
+    if container_index == 2:
+        subprocess.run("docker cp container3:/home/cloud_computing/Output E:\Output\\container3")
     containers_list[container_index] = "idle"
     print("User" + str(user_id) + " tasks finished")
 
@@ -72,14 +79,17 @@ def container_selector(containers_list, tasks_list):
     while not stop_flag:
         if containers_list[0] == "idle" and len(tasks_list) != 0:
             containers_list[0] = "busy"
+            print("User" + str(tasks_list[0][1]) + " tasks are assigned to container1")
             threading.Thread(target=task_assigner, args=("container1", tasks_list[0], containers_list)).start()
             tasks_list.pop(0)
         if containers_list[1] == "idle" and len(tasks_list) != 0:
             containers_list[1] = "busy"
+            print("User" + str(tasks_list[0][1]) + " tasks are assigned to container2")
             threading.Thread(target=task_assigner, args=("container2", tasks_list[0], containers_list)).start()
             tasks_list.pop(0)
         if containers_list[2] == "idle" and len(tasks_list) != 0:
             containers_list[2] = "busy"
+            print("User" + str(tasks_list[0][1]) + " tasks are assigned to container3")
             threading.Thread(target=task_assigner, args=("container3", tasks_list[0], containers_list)).start()
             tasks_list.pop(0)
 
@@ -109,7 +119,12 @@ while True:
         stop_flag = True
         break
 
-    else:
+    if user_input == "status":
+        print("container1: " + containers_status[0])
+        print("container2: " + containers_status[1])
+        print("container3: " + containers_status[2])
+
+    if user_input != "exit" and user_input != "status":
         commands_list, number_of_commands = input_separator(user_input)
         commands_string = "docker exec container1 python /home/cloud_computing/Script.py "
         for i in commands_list:
@@ -119,7 +134,6 @@ while True:
         tasks.append([commands_string, user_id, number_of_commands])
         # start_time = time.time()
         # print("The command is: " + commands_string)
-        print("User" + str(user_id) + " tasks are processing")
         user_id += 1
         # subprocess.run(commands_string)
         # stop_time = time.time()
