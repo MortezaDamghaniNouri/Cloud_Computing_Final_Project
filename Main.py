@@ -1,6 +1,8 @@
 import subprocess
 import threading
 import time
+# This library is used for copying a file from a source location to a destination location
+import shutil
 
 # This flag will set to True to stop the container selector thread
 stop_flag = False
@@ -91,13 +93,25 @@ def task_assigner(container_name, task, containers_list):
     i = 0
     while i < len(commands_list):
         if i % 2 == 1:
-            subprocess.run("docker cp " + commands_list[i] + " " + container_name + ":/home/cloud_computing/Input/user" + str(user_id) + "_input/input" + str((i + 1) / 2) + ".txt")
-            commands_string += "/home/cloud_computing/Input/user" + str(user_id) + "_input/input" + str((i + 1) / 2) + ".txt" + " "
+            if commands_list[i - 1] != "program":
+                subprocess.run("docker cp " + commands_list[i] + " " + container_name + ":/home/cloud_computing/Input/user" + str(user_id) + "_input/input" + str((i + 1) / 2) + ".txt")
+                commands_string += "/home/cloud_computing/Input/user" + str(user_id) + "_input/input" + str((i + 1) / 2) + ".txt" + " "
         else:
             if i == len(commands_list) - 1:
                 commands_string += "/home/cloud_computing/Output/user" + str(user_id) + "_output"
             else:
-                commands_string += commands_list[i] + " "
+                if commands_list[i] != "program":
+                    commands_string += commands_list[i] + " "
+                else:
+                    input_file_folder = commands_list[i + 1]
+                    subprocess.run("docker exec " + container_name + " touch " + "/home/cloud_computing/Input/user" + str(user_id) + "_input/input_program.py")
+                    subprocess.run("docker cp " + input_file_folder + " " + container_name + ":/home/cloud_computing/Input/user" + str(user_id) + "_input/input_program.py")
+                    # Executing the program execution tasks in container
+                    subprocess.run("docker exec " + container_name + " python /home/cloud_computing/Input/user" + str(user_id) + "_input/input_program.py > E:\Python_Codes_Output\python_program_output.txt 2>&1")
+                    # Copying the output results of running the program in the user output folder
+                    shutil.copy("E:\Python_Codes_Output\python_program_output.txt", "C:\Output")
+
+
         i += 1
 
     if container_name == "container1":
