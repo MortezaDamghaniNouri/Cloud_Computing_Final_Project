@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d1c87f42-9df9-48fc-9126-0948b873ecbb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Input.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +100,7 @@
       <updated>1626439881761</updated>
       <workItem from="1626439884991" duration="17347000" />
       <workItem from="1626499599689" duration="1026000" />
-      <workItem from="1626527496572" duration="24378000" />
+      <workItem from="1626527496572" duration="25271000" />
     </task>
     <servers />
   </component>
@@ -117,25 +115,25 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="421" y="95" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1626592136661" />
-    <state width="1237" height="267" key="GridCell.Tab.0.bottom" timestamp="1626588864218">
+    <state width="1237" height="267" key="GridCell.Tab.0.bottom" timestamp="1626605636685">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="267" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1626588864218" />
-    <state width="1237" height="267" key="GridCell.Tab.0.center" timestamp="1626588864218">
+    <state width="1237" height="267" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1626605636685" />
+    <state width="1237" height="267" key="GridCell.Tab.0.center" timestamp="1626605636685">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="267" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1626588864218" />
-    <state width="1237" height="267" key="GridCell.Tab.0.left" timestamp="1626588864218">
+    <state width="1237" height="267" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1626605636685" />
+    <state width="1237" height="267" key="GridCell.Tab.0.left" timestamp="1626605636684">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="267" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1626588864218" />
-    <state width="1237" height="267" key="GridCell.Tab.0.right" timestamp="1626588864218">
+    <state width="1237" height="267" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1626605636684" />
+    <state width="1237" height="267" key="GridCell.Tab.0.right" timestamp="1626605636685">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="267" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1626588864218" />
+    <state width="1237" height="267" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1626605636685" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Cloud_Computing_Final_Project$Script.coverage" NAME="Script Coverage Results" MODIFIED="1626459074541" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Cloud_Computing_Final_Project$Main.coverage" NAME="Main Coverage Results" MODIFIED="1626588635251" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Cloud_Computing_Final_Project$Main.coverage" NAME="Main Coverage Results" MODIFIED="1626605636672" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
