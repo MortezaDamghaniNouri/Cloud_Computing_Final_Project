@@ -8,6 +8,10 @@ RUN mkdir c:\home\cloud_computing
 
 RUN mkdir c:\home\cloud_computing\Output
 
+#installing numpy library in the container
+
+RUN pip install numpy
+
 #copying Script.py from local directory to container's cloud_computing folder
 
 COPY Script.py /home/cloud_computing/Script.py

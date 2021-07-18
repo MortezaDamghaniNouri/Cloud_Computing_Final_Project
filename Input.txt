@@ -1,4 +1,4 @@
-{<min, /home/cloud_computing/numbers.txt>, <max, /home/cloud_computing/numbers.txt>, <average, /home/cloud_computing/numbers.txt>, <sort, /home/cloud_computing/numbers.txt>, <wordcount, /home/cloud_computing/words.txt>, </home/cloud_computing/Output>}
+{<min, E:\Input\numbers.txt>, <max, E:\Input\numbers.txt>, <average, E:\Input\numbers.txt>, <sort, E:\Input\numbers.txt>, <wordcount, E:\Input\words.txt>, <C:\Output>}
 
 ==========
 {<sort, /home/cloud_computing/numbers.txt>, <wordcount, /home/cloud_computing/words.txt>, </home/cloud_computing/Output>}
