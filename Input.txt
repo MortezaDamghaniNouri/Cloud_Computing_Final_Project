@@ -9,7 +9,7 @@
 
 ==========
 
-{<program, E:\Input\program1.py>, <program, E:\Input\program2.py>, <wordcount, E:\Input\words.txt>, <program, E:\Input\program2.py>, <program, E:\Input\program2.py>, <C:\Output>}
+{<program, E:\Input\program1.py>, <min, E:\Input\numbers.txt>, <program, E:\Input\program2.py>, <wordcount, E:\Input\words.txt>, <program, E:\Input\program2.py>, <sort, E:\Input\numbers.txt>, <average, E:\Input\numbers.txt>, <program, E:\Input\program2.py>, <max, E:\Input\numbers.txt>, <C:\Output>}
 
 
 

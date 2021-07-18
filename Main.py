@@ -11,7 +11,6 @@ def input_separator(user_input):
     user_input = user_input.rstrip("}")
     user_input = user_input.lstrip("{")
     commands = user_input.split(">, ")
-    number_of_commands = len(commands) - 1
     output_commands = []
     i = 0
     while i < len(commands) - 1:
@@ -26,6 +25,12 @@ def input_separator(user_input):
     output_file_location = output_file_location.lstrip("<")
     output_file_location = output_file_location.rstrip(">")
     output_commands.append(output_file_location)
+    number_of_commands = 0
+    i = 0
+    while i < len(output_commands) - 1:
+        if output_commands[i] != "program":
+            number_of_commands += 1
+        i += 2
     return output_commands, number_of_commands
 
 
@@ -71,6 +76,7 @@ def task_assigner(container_name, task, containers_list):
     commands_list = task[0]
     # Program command input counter
     counter = 1
+    cached_commands = []
     # Making input directory in the container
     subprocess.run("docker exec " + container_name + " mkdir -p /home/cloud_computing/Input/user" + str(user_id) + "_input")
     # Making the output directory in the container
@@ -93,6 +99,7 @@ def task_assigner(container_name, task, containers_list):
             if commands_list[i - 1] != "program":
                 subprocess.run("docker cp " + commands_list[i] + " " + container_name + ":/home/cloud_computing/Input/user" + str(user_id) + "_input/input" + str((i + 1) / 2) + ".txt")
                 commands_string += "/home/cloud_computing/Input/user" + str(user_id) + "_input/input" + str((i + 1) / 2) + ".txt" + " "
+                cached_commands.append("docker cp " + commands_list[i] + " " + container_name + ":/home/cloud_computing/Input/user" + str(user_id) + "_input/input" + str((i + 1) / 2) + ".txt")
         else:
             if i == len(commands_list) - 1:
                 commands_string += "/home/cloud_computing/Output/user" + str(user_id) + "_output"
@@ -110,7 +117,31 @@ def task_assigner(container_name, task, containers_list):
                     program_output_file.write(output.stdout.decode())
                     program_output_file.write(output.stderr.decode())
                     program_output_file.close()
+                    # Cleaning the container by restarting it after the user code execution
+                    subprocess.run("docker stop " + container_name, capture_output=True)
+                    subprocess.run("docker rm " + container_name, capture_output=True)
+                    subprocess.run("docker run -t -d --name " + container_name + " cloud_computing_image", capture_output=True)
+                    # Making input directory in the container
+                    subprocess.run("docker exec " + container_name + " mkdir -p /home/cloud_computing/Input/user" + str(user_id) + "_input")
+                    # Making the output directory in the container
+                    subprocess.run("docker exec " + container_name + " mkdir -p /home/cloud_computing/Output/user" + str(user_id) + "_output")
+                    if does_task_exist("min", commands_list):
+                        subprocess.run("docker exec " + container_name + " touch /home/cloud_computing/Output/user" + str(user_id) + "_output" + "/min.txt")
+                    if does_task_exist("max", commands_list):
+                        subprocess.run("docker exec " + container_name + " touch /home/cloud_computing/Output/user" + str(user_id) + "_output" + "/max.txt")
+                    if does_task_exist("average", commands_list):
+                        subprocess.run("docker exec " + container_name + " touch /home/cloud_computing/Output/user" + str(user_id) + "_output" + "/average.txt")
+                    if does_task_exist("sort", commands_list):
+                        subprocess.run("docker exec " + container_name + " touch /home/cloud_computing/Output/user" + str(user_id) + "_output" + "/sort.txt")
+                    if does_task_exist("wordcount", commands_list):
+                        subprocess.run("docker exec " + container_name + " touch /home/cloud_computing/Output/user" + str(user_id) + "_output" + "/wordcount.txt")
+                    for k in cached_commands:
+                        subprocess.run(k)
+
+
         i += 1
+
+
 
     if container_name == "container1":
         threading.Thread(target=status_list_changer, args=(containers_list, 0, task[2], user_id, commands_list[len(commands_list) - 1])).start()
