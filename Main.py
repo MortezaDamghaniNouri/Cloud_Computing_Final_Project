@@ -57,7 +57,7 @@ def status_list_changer(containers_list, container_index, number_of_commands, us
     if container_index == 2:
         subprocess.run("docker cp container3:/home/cloud_computing/Output/user" + str(user_id) + "_output " + output_folder)
     containers_list[container_index] = "idle"
-    print("User" + str(user_id) + " tasks finished")
+    print("User" + str(user_id) + " tasks finished\n")
 
 
 # This function checks if the input task exists among user input commands
@@ -191,7 +191,7 @@ threading.Thread(target=container_selector, args=(containers_status, tasks)).sta
 user_id = 1
 
 while True:
-    user_input = input("Input: ")
+    user_input = input("Input: \n")
     if user_input == "exit":
         dockers_terminator()
         stop_flag = True
@@ -205,12 +205,8 @@ while True:
     if user_input != "exit" and user_input != "status":
         commands_list, number_of_commands = input_separator(user_input)
         tasks.append([commands_list, user_id, number_of_commands])
-        # start_time = time.time()
-        # print("The command is: " + commands_string)
         user_id += 1
-        # subprocess.run(commands_string)
-        # stop_time = time.time()
-        # print("Time: " + str(round(stop_time - start_time, 2)) + " s")
+
 
 
 
